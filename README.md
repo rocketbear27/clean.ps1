@@ -9,7 +9,9 @@ A collection of Windows PowerShell scripts that cleans specific files or folders
 
 ## File Structure
 `/sampleDirectory`: a sample folder that users can test the script on
+
 `clean.ps1`: the main script that removes files and folders
+
 `folder.ps1`: the smaller script that only removes folders
 
 ## Running the scripts
