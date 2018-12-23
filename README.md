@@ -1,8 +1,8 @@
 ![](https://img.shields.io/badge/script-working-brightgreen.svg)
 ![](https://img.shields.io/badge/recommended_for-Windows_10-blue.svg)
 
-# clean.ps1 (0.0.1)
-A collection of Windows PowerShell scripts that cleans specific files or folders from a directory! 🗑📁
+# cleanscript (0.0.1)
+A collection of scripts that cleans specific files or folders from a directory! 🗑📁
 
 ## Change Log
 **12-23-18**: Created `clean.ps1`, `folder.ps1` ; 
