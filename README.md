@@ -1,18 +1,11 @@
 ![](https://img.shields.io/badge/script-working-brightgreen.svg)
-![](https://img.shields.io/badge/recommended_for-Windows_10-blue.svg)
+![](https://img.shields.io/badge/tested_on-Windows_10-blue.svg)
 
 # cleanscript (0.0.1)
 A collection of scripts that cleans specific files or folders from a directory! 🗑📁
 
 ## Change Log
-**12-23-18**: Created `clean.ps1`, `folder.ps1` ; 
-
-## File Structure
-`/sampleDirectory`: a sample folder that users can test the script on
-
-`clean.ps1`: the main script that removes files and folders
-
-`folder.ps1`: the smaller script that only removes folders
+**12-23-18**: Created `clean.ps1`, `folder.ps1` 
 
 ## Running the scripts
 _Content Coming Soon_
