@@ -5,8 +5,6 @@ import os
 how_many_times_we_should_clean = 0
 deleted_files = []
 
-_dir = sys.argv[1]
-
 class FileCache:
   def __init__(self, _dir):
     self._dir = _dir
@@ -76,7 +74,9 @@ def scan_and_clean(_dir):
   return
 
 
-#Finally, run the program
-scan_and_clean(_dir)
-for i in range(how_many_times_we_should_clean):
-  scan_and_clean(_dir)
+#Finally, run the program on all the given directories
+for i in range( 1, len(sys.argv) ):
+  scan_and_clean(i)
+  for j in range(how_many_times_we_should_clean):
+    scan_and_clean(i)
+  how_many_times_we_should_clean = 0
