@@ -18,6 +18,14 @@ To clean a desired folder, simply run:
 
 This will eliminate heavy or useless files and folders automatically.
 
+If you want to clean multiple folders with one command, just add them separate parameters like so:
+`cleanscript /absolute/path/to/desired/folder /absolute/path/to/other/desired/folder`
+
+By default, the script will delete:
+- duplicate files
+- files with a `.desktop` extension
+
+To change what files are deleted, edit the regex in the `/lib/cleanscript/cleanscript_settings.txt` file to match the correct files.
 
 ## Making the most of cleanscript
 For the best results, we recommend running cleanscript automatically on startup. 
