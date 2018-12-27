@@ -1,23 +1,23 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 import sys
 import os
 
 how_many_times_we_should_clean = 0
 deleted_files = []
 
-dir = sys.argv[0]
+_dir = sys.argv[1]
 
 class FileCache:
-  def __init__(dir):
-    self.dir = dir
+  def __init__(self, _dir):
+    self._dir = _dir
     self.file_cache = []
-  def cache(filename):
-    #Assume the file is in the dir
-    with open( dir + "/" + filename, "r" ) as file:
+  def cache(self, filename):
+    #Assume the file is in the _dir
+    with open( self._dir + "/" + filename, "r" ) as file:
       self.file_cache.append( file.read() )
-  def file_is_in_cache(filename):
+  def file_is_in_cache(self, filename):
     file_content = ""
-    with open(dir + "/" + filename, "r" ) as file:
+    with open(self._dir + "/" + filename, "r" ) as file:
       file_content = file.read()
     if file_content in self.file_cache:
       return True
@@ -35,21 +35,27 @@ def is_heavy_or_useless(filename):
 
 
 def delete_file_or_folder(filename):
-  os.remove(filename)
+  if os.path.isdir(filename):
+    os.rmdir(filename)
+  else:
+    os.remove(filename)
   #For convenience, we'll log all our deleted files and folders and show them to the user
   deleted_files.append(filename)
   
-def scan_and_clean(dir):
+def scan_and_clean(_dir):
+  global how_many_times_we_should_clean
+  
+  print(_dir)
   how_many_times_we_should_clean += 1
-  file_cache = FileCache( dir )
-  for i in os.listdir(dir):
+  file_cache = FileCache( _dir )
+  for i in os.listdir(_dir):
     #Make sure not to get stuck in recursion or overstep our boundaries
     if i in [".",".."]:
       continue
     
-    path_to_file = dir + "/" + i
+    path_to_file = _dir + "/" + i
     
-    #If it is a directory
+    #If it is a _directory
     if os.path.isdir(path_to_file):
       if len( os.listdir(path_to_file) ) == 0:
         delete_file_or_folder(path_to_file)
@@ -71,5 +77,6 @@ def scan_and_clean(dir):
 
 
 #Finally, run the program
+scan_and_clean(_dir)
 for i in range(how_many_times_we_should_clean):
-  scan_and_clean(dir)
+  scan_and_clean(_dir)
