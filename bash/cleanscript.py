@@ -26,7 +26,7 @@ class FileCache:
 
 def is_heavy_or_useless(filename):
   #If it is a shortcut
-  if filename.split(".")[-1] == ".desktop":
+  if filename.split(".")[-1] == "desktop":
     return True
   
   #Put more cases here
