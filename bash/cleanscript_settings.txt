@@ -1,0 +1,2 @@
+#The line below defines the regex that determines whether a file will be deleted.
+([a-zA-Z0-9\s_\\.\-\(\):])+(.desktop)$
