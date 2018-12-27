@@ -1,6 +1,18 @@
 #!/usr/bin/env python3
 import sys
 import os
+import re
+
+file_regex = ""
+
+def load_settings():
+  with open("/lib/cleanscript/cleanscript_settings.txt","r") as file:
+    content = file.read()
+    file_regex = content.split("\n")[1]
+
+load_settings()
+
+file_regex = re.compile(file_regex)
 
 how_many_times_we_should_clean = 0
 deleted_files = []
@@ -23,11 +35,11 @@ class FileCache:
 
 
 def is_heavy_or_useless(filename):
-  #If it is a shortcut
-  if filename.split(".")[-1] == "desktop":
+  #If the file matches the regex, delete it
+  if file_regex.match(filename) != None:
     return True
   
-  #Put more cases here
+  #Put more cases here if needed
   
   return False
 
