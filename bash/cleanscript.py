@@ -7,7 +7,7 @@ deleted_files = []
 
 dir = sys.argv[0]
 
-class FileCache {
+class FileCache:
   def __init__(dir):
     self.dir = dir
     self.file_cache = []
@@ -22,7 +22,7 @@ class FileCache {
     if file_content in self.file_cache:
       return True
     return False
-}
+
 
 def is_heavy_or_useless(filename):
   #If it is a shortcut
